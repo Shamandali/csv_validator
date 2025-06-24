@@ -1,0 +1,10 @@
+54563,pepe@gmail.com,CC,600000,Valor
+10452,martha@gmail.com,CC,698675,Casa
+11341,raul@hotmail.co,CC,500000,Carro
+53456,daniel@outlook.es,CC,500000,Texto
+94267,fidel@correo.com,CC,520000,Valor
+78976,lida@gmail.com,TI,530000,ADRES
+57777,daby@outlook.es,TI,900000,IPS
+83333,oto@outlook.com,TI,800000,EPS
+73415,hans@yahoo.es,TI,700000,Django
+7532134,bryan@outlook.es,TI,640000,Python
