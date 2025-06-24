@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="../../static/file_upload/styles.css">
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Validador de archivos</title>
+  </head>
+  <body>
+    <header class="header">
+    <img src="../../static/file_upload/Screenshot 2025-06-23 at 9.19.07 PM.png" alt="GOV.CO" class="logo" />
+    </header>
+    <div class="container">
+      <h1>Bienvenidos al módulo validador de archivos</h1>
+      <h2>Señor usuario, cargue el archivo que desea validar</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="file-input">
+          <label for="id_file" class="custom-file-label">Seleccionar archivo</label>
+          {{ form.file }}
+          <span id="file-name" class="file-display" style="display: none;"></span>
+        </div>
+        <button type="submit">Validar</button>
+      </form>
+        {% if message %}
+        <div class="alert">{{ message }}</div>
+        {% endif %} {% if errors %}
+        <div class="errors">
+          <h4>Errores encontrados:</h4>
+          <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if rows %}
+        <h3>Datos del archivo:</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Columna 1</th>
+              <th>Columna 2</th>
+              <th>Columna 3</th>
+              <th>Columna 4</th>
+              <th>Columna 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in rows %}
+              <tr>
+                {% for item in row %}
+                  <td>{{ item }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+    </div>
+    <footer class="footer"></footer>
+  </body>
+</html>
+<script>
+  const input = document.getElementById("id_file");
+  const fileName = document.getElementById("file-name");
+
+  if (input) {
+    input.addEventListener("change", function () {
+      if (this.files[0]) {
+        fileName.textContent = this.files[0].name;
+        fileName.style.display = "inline";
+      } else {
+        fileName.style.display = "none";
+      }
+    });
+  }
+</script>
+
+
+
